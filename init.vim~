@@ -58,9 +58,10 @@ let g:prettier#exec_cmd_path = './node_modules/.bin/prettier'
 
 " Yank highlighting
 augroup YankHighlight
-  autocmd!
-  autocmd TextYankPost * if v:event.operator == 'y' && v:event.regname == ''
-    \ | echo 'Yanked ' . join(v:event.regcontents, "\n") . ' to register ' . v:event.regname
-    \ | endif
+autocmd!
+autocmd TextYankPost * if v:event.operator == 'y' && v:event.regname == ''
+  \ echo 'Yanked ' . v:event.regcontents[0] . ' to register ' . v:event.regname
+endif
 augroup END
+
 
