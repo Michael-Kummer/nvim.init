@@ -8,7 +8,6 @@ Plug 'preservim/nerdtree'                                " File browser
 Plug 'neoclide/coc.nvim', {'branch': 'release'}          " Auto-completion engine
 Plug 'jiangmiao/auto-pairs'                              " Auto-pairing of brackets and quotes
 Plug 'tpope/vim-surround'                                " Manipulate surround characters easily
-Plug 'dense-analysis/ale'                                " Asynchronous linting
 
 " Web development plugins
 Plug 'othree/html5.vim'                                  " HTML5 syntax and omnicomplete functions
@@ -21,9 +20,6 @@ Plug 'ap/vim-css-color'                                  " Show color codes in t
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'                                  " Fzf: Vim integration
 
-" Formatting and beautification
-Plug 'prettier/vim-prettier', {'do': 'yarn install'}     " Prettier plugin for auto-formatting
-
 " Additional useful plugins
 Plug 'ludovicchabant/vim-gutentags'                      " Automatic tags management
 Plug 'preservim/tagbar'                                  " Sidebar with structure of the file
@@ -35,15 +31,15 @@ call plug#end()
 set number                           " Show line numbers
 set relativenumber                   " Show relative line numbers adjacent to absolute ones
 set noswapfile                       " Disable swap files
-set backup                           " Enable backups
 set undodir=~/.nvim/undodir          " Specify directory for undo files
 set undofile                         " Enable persistent undo
 set ignorecase                       " Searches are case insensitive
 set smartcase                        " Searches are case sensitive if contain uppercase letters
 set tabstop=4						 " Tabs are 4 spaces
 set shiftwidth=4					 " Autotabs are also 4 spaces
-set nobackup						 " Ensures that no SWP or temp files pop up 
-set nowritebackup
+set nobackup                       " Do not create a backup file
+set nowritebackup                  " Do not write a backup file before overwriting a file
+set noswapfile                     " Disable swap file creation
 
 
 " Key mappings
@@ -56,11 +52,8 @@ let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-tsserver']
 syntax enable                        " Enable syntax highlighting
 colorscheme default                  " Set default color scheme
 
-" Prettier executable path
-let g:prettier#exec_cmd_path = './node_modules/.bin/prettier'
-
-" Yank highlighting
-augroup YankHighlight
+" Yank highlighting - I particularly need a notification that I am Yanking
+  augroup YankHighlight
   autocmd!
   autocmd TextYankPost * if v:event.operator == 'y' && v:event.regname == ''
     \ | echo 'Yanked ' . join(v:event.regcontents, "\n") . ' to register ' . v:event.regname

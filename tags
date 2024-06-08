@@ -5,6 +5,5 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 <C-n>	init.vim	/^nnoremap <C-n> :NERDTreeToggle<CR>   " Toggle NERDTree with Ctrl-n$/;"	m
-YankHighlight	init.vim	/^augroup YankHighlight$/;"	a
+YankHighlight	init.vim	/^  augroup YankHighlight$/;"	a
 g:coc_global_extensions	init.vim	/^let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-tsserver']$/;"	v
-g:prettier#exec_cmd_path	init.vim	/^let g:prettier#exec_cmd_path = '.\/node_modules\/.bin\/prettier'$/;"	v
