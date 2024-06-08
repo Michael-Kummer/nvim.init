@@ -40,11 +40,8 @@ set undodir=~/.nvim/undodir          " Specify directory for undo files
 set undofile                         " Enable persistent undo
 set ignorecase                       " Searches are case insensitive
 set smartcase                        " Searches are case sensitive if contain uppercase letters
-set tabstop=4						 " Tabs are 4 spaces
-set shiftwidth=4					 " Autotabs are also 4 spaces
-set nobackup						 " Ensures that no SWP or temp files pop up 
-set nowritebackup
-
+set tabstop=4
+set shiftwidth=4
 
 " Key mappings
 nnoremap <C-n> :NERDTreeToggle<CR>   " Toggle NERDTree with Ctrl-n
